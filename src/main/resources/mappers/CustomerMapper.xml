@@ -389,5 +389,11 @@
             </foreach>
   </update>
 
+<!--  根据姓名查询客户记录-->
+  <select id="queryCustomerByName" parameterType="string" resultType="com.itpanda.crm.pojo.Customer">
+    select <include refid="Base_Column_List"></include>
+        from t_customer
+        where name = #{name}
+  </select>
 
 </mapper>

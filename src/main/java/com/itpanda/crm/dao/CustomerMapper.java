@@ -15,4 +15,7 @@ public interface CustomerMapper extends BaseMapper<Customer,Integer> {
 
     //批量修改客户流失状态
     Integer updateCustomerStateByIds(List<Integer> loosCustomerIdList);
+
+    //根据姓名查询客户
+    Customer queryCustomerByName(String customer);
 }

@@ -232,4 +232,26 @@
       create_date = #{createDate,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+<!--  分页查询-->
+
+  <select id="selectByParams" parameterType="com.itpanda.crm.query.CustomerServeQuery" resultType="com.itpanda.crm.pojo.CustomerServe">
+    select cs.*,dd.data_dic_value dicValue
+        from t_customer_serve cs
+        left join t_datadic dd
+        on cs.serve_type = dd.id
+    <where>
+      cs.is_valid =1
+        <if test="customer != null and customer != ''">
+           and customer like concat("%",#{customer},"%")
+        </if>
+        <if test="serveType != null and serveType != ''">
+           and serve_type = #{serveType}
+        </if>
+        <if test="state != null and state != ''">
+           and state = #{state}
+        </if>
+
+    </where>
+  </select>
 </mapper>

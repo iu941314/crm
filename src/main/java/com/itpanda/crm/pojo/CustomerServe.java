@@ -1,5 +1,7 @@
 package com.itpanda.crm.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class CustomerServe {
@@ -18,12 +20,14 @@ public class CustomerServe {
     private String createPeople;
 
     private String assigner;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
 
     private Date assignTime;
 
     private String serviceProce;
 
     private String serviceProcePeople;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
 
     private Date serviceProceTime;
 
@@ -32,10 +36,23 @@ public class CustomerServe {
     private String myd;
 
     private Integer isValid;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
 
     private Date updateDate;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
 
     private Date createDate;
+
+//    服务类型
+    private String dicValue;
+
+    public String getDicValue() {
+        return dicValue;
+    }
+
+    public void setDicValue(String dicValue) {
+        this.dicValue = dicValue;
+    }
 
     public Integer getId() {
         return id;
